@@ -65,9 +65,14 @@ class PasswordGrantType implements GrantTypeInterface
             'password' => $this->password,
         ];
 
-        if ($this->clientId !== null && $this->clientSecret !== null) {
+        if ($this->clientId !== null) {
             $parameters = array_merge($parameters, [
                 'client_id' => $this->clientId,
+            ]);
+        }
+
+        if ($this->clientId !== null && $this->clientSecret !== null) {
+            $parameters = array_merge($parameters, [
                 'client_secret' => $this->clientSecret,
             ]);
         }
